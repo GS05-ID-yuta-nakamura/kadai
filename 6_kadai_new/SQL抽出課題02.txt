@@ -1,0 +1,33 @@
+--SQL抽出課題02.txt
+—-修正
+—-修正
+
+--Question 1, UPDATEを使って"ユニーク値" 「7」の書籍名を”RB”に変更するSQLを作る
+UPDATE gs_bm_table 
+SET book_name='RB'
+WHERE id=7;
+
+--Question 2, UPDATEを使って"ユニーク値" 「3,9」の書籍名を”PY”に変更するSQLを作る
+UPDATE gs_bm_table 
+SET book_name='RY'
+WHERE id=3 or id=9;
+
+--Question 3, UPDATEを使って"ユニーク値"「６〜8」の登録⽇時を現在時刻に変更するSQLを作る
+UPDATE gs_bm_table 
+SET indate=sysdate()
+WHERE id >= 6 AND id <= 8;
+
+--Question 4, UPDATEを使って"書籍名"「JS本」を書籍名「PHP&JS」に変更するSQLを作る
+UPDATE gs_bm_table 
+SET book_name='PHP&JS'
+WHERE book_name LIKE '%JS本%';
+
+--Question 5, UPDATEを使って”書籍コメント”が⼊って無いレコードがあれば、”書籍コメントに”に「未⼊⼒」と変更するSQLを作る。
+UPDATE gs_bm_table 
+SET book_comment='未入力'
+WHERE book_comment IS NULL or book_comment='';
+
+
+--Nullと''は違うらしい
+SELECT * FROM gs_bm_table WHERE book_comment IS NULL;
+SELECT * FROM gs_bm_table WHERE book_comment IS null;

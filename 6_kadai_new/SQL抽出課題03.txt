@@ -1,0 +1,30 @@
+--SQL抽出課題03.txt
+
+--userを登録するフォーマット
+--sex(0=man,1=woman),auth(0=user,1=author)  
+INSERT INTO gs_users(id, name, email, seibetu, age, auth, indate
+) VALUES(
+NULL, 'yuta', 'n.@gmail.com', '0', '23', '1', sysdate() );
+
+--Question 1, SELECT⽂を使って、"id" 「1,3,5」だけ抽出するSQLを作る
+SELECT * FROM gs_users WHERE id = 1 or id = 3 or id = 5;
+
+--Question 2, SELECT⽂を使って、"id" 「4〜8」を抽出するSQLを作る
+SELECT * FROM gs_users WHERE id >= 4 AND id <= 8;
+
+--Question 3, SELECT⽂を使って、"email"「test1」を抽出するあいまい検索を作る
+SELECT * FROM gs_users WHERE email LIKE '%test1%' ;
+
+--Question 4, SELECT⽂を使って、"新しい⽇付順"にソートするSQLを作る。
+SELECT * FROM gs_users ORDER BY indate DESC;
+
+--Question 5, SELECT⽂を使って、"age"「20」で"indate"「2016-05-26%」のデータを抽出するSQLを作る
+SELECT * FROM gs_users WHERE age = 20 AND indate LIKE '2016-05-26%';
+
+--Question 6, SELECT⽂を使って、"新しい⽇付順"で、「5個」だけ取得するSQLを作る
+SELECT * FROM gs_users ORDER BY indate DESC LIMIT 5;
+
+--Question 7, （難問題） "age"で「GROUP BY 」使い10,20,30,40歳が各何⼈知るか抽出するSQLを作る
+select count(*) as cnt
+from gs_users
+group by age div 10;
