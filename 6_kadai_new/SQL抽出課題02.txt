@@ -1,6 +1,6 @@
 --SQL抽出課題02.txt
-—-修正
-—-修正
+--修正
+--修正
 
 --Question 1, UPDATEを使って"ユニーク値" 「7」の書籍名を”RB”に変更するSQLを作る
 UPDATE gs_bm_table 
