@@ -28,3 +28,4 @@ SELECT * FROM gs_users ORDER BY indate DESC LIMIT 5;
 select count(*) as cnt
 from gs_users
 group by age div 10;
+
