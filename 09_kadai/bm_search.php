@@ -2,27 +2,20 @@
 include("functions.php");
 
 //0. POSTデータ取得
-if(!$_POST["bookname"]=""){
-    $bookname   = $_POST["bookname"];
-}else{
-    
+$like="";
+if($_POST["like"] == "nolike"){
+    $like   = "0";
+}elseif($_POST["like"] == "like"){
+    $like   = "1";
 }
-if(!$_POST["like"]=""){
-    $like   = $_POST["like"];
-}
-if(!$_POST["like"]=""){
-    $score  = $_POST["score"];
-}
-
-$score  = $_POST["score"];
-$bookstatus  = $_POST["status"];
 
 
 //1.  DB接続します
 $pdo = db_con();
 
 //２．データ登録SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_bm_table ORDER BY indate DESC;");
+$stmt = $pdo->prepare("SELECT * FROM gs_bm_table WHERE  book_like=:a2");
+$stmt->bindValue(':a2', $like, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute();
 
 //３．データ表示
@@ -158,7 +151,9 @@ $(document).ready(function(){
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="bm_insert_view.php">データ登録</a>
+          <a class="navbar-brand" href="bm_insert_view.php">データ登録</a>
+          <a class="navbar-brand" href="bm_user_detail.php">登録情報</a>
+          <a class="navbar-brand" href="bm_logout.php">ログアウト</a>
       </div>
     </div>
   </nav>
@@ -189,13 +184,13 @@ $(document).ready(function(){
     <form method="post" action="bm_search.php">
     <div id="search">
        <h2>検索</h2>
-       <label>本の名前：<input type="text" name="bookname"></label>
        <label>お気に入り：
              <select name="like">
-                 <option>未選択</option>
+                 <option value="nolike">未選択</option>
                  <option value="like">お気に入り</option>
              </select>
-    　　</label><br>
+    　　</label>
+<!--
        <label>評価：
             <select name="score">
                 <option>選択</option>
@@ -222,6 +217,7 @@ $(document).ready(function(){
                  <option value="legend">バイブル</option>
              </select>
          </label>
+-->
          <input type="submit" class="answer" value="検索" >
     </div>
     </form>

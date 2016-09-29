@@ -145,6 +145,50 @@ $(document).ready(function(){
             $(this).parent("p").addClass("like0");
         }
     })
+    
+//    $('#like').click(function()
+//        {
+//            //POSTメソッドで送るデータを定義します var data = {パラメータ名 : 値};
+//            var data = {request : $('#request').val()};
+//
+//            /**
+//             * Ajax通信メソッド
+//             * @param type  : HTTP通信の種類
+//             * @param url   : リクエスト送信先のURL
+//             * @param data  : サーバに送信する値
+//             */
+//            $.ajax({
+//                type: "POST",
+//                url: "send.php",
+//                data: data,
+//                /**
+//                 * Ajax通信が成功した場合に呼び出されるメソッド
+//                 */
+//                success: function(data, dataType)
+//                {
+//                    //successのブロック内は、Ajax通信が成功した場合に呼び出される
+//
+//                    //PHPから返ってきたデータの表示
+//                    alert(data);
+//                },
+//                /**
+//                 * Ajax通信が失敗した場合に呼び出されるメソッド
+//                 */
+//                error: function(XMLHttpRequest, textStatus, errorThrown)
+//                {
+//                    //通常はここでtextStatusやerrorThrownの値を見て処理を切り分けるか、単純に通信に失敗した際の処理を記述します。
+//
+//                    //this;
+//                    //thisは他のコールバック関数同様にAJAX通信時のオプションを示します。
+//
+//                    //エラーメッセージの表示
+//                    alert('Error : ' + errorThrown);
+//                }
+//            });
+//            
+//            //サブミット後、ページをリロードしないようにする
+//            return false;
+//        });
 });
 </script> 
 <style>div{padding: 10px;}</style>
@@ -158,6 +202,7 @@ $(document).ready(function(){
           <a class="navbar-brand" href="bm_insert_view.php">データ登録</a>
           <a class="navbar-brand" href="bm_user_detail.php">登録情報</a>
           <a class="navbar-brand" href="bm_logout.php">ログアウト</a>
+          <p class="navbar-brand name">ようこそ <?php echo $_SESSION["name"] ?> さん</p>
       </div>
     </div>
   </nav>
@@ -188,39 +233,12 @@ $(document).ready(function(){
     <form method="post" action="bm_search.php">
     <div id="search">
        <h2>検索</h2>
-       <label>本の名前：<input type="text" name="bookname"></label>
        <label>お気に入り：
              <select name="like">
-                 <option>未選択</option>
+                 <option value="nolike">未選択</option>
                  <option value="like">お気に入り</option>
              </select>
-    　　</label><br>
-       <label>評価：
-            <select name="score">
-                <option>選択</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-        </label>
-        <label>ステータス：
-             <select name="status">
-                 <option>選択</option>
-                 <option value="already">読了</option>
-                 <option value="yet">購入済</option>
-                 <option value="now">読書中</option>
-                 <option value="wish">気になる</option>
-                 <option value="retry">また挑戦</option>
-                 <option value="legend">バイブル</option>
-             </select>
-         </label>
+    　　</label>
          <input type="submit" class="answer" value="検索" >
     </div>
     </form>

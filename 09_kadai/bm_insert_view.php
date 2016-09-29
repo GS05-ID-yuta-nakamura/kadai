@@ -15,7 +15,11 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">データ一覧</a></div>
+      <div class="navbar-header">
+          <a class="navbar-brand" href="bm_list_view.php">データ一覧</a>
+          <a class="navbar-brand" href="bm_user_detail.php">登録情報</a>
+          <a class="navbar-brand" href="bm_logout.php">ログアウト</a>
+      </div>
     </div>
   </nav>
 </header>

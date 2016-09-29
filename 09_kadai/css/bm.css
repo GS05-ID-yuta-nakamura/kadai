@@ -19,15 +19,19 @@ img{
 #search{
     width:60%;
     margin: 0 auto;
-}
-
-#search h2{
     text-align: center;
 }
 
+#search h2{
+    
+}
+
+/*
 .answer{
     float: right;
 }
+*/
+
 
 .container{
     background-color: ghostwhite;
@@ -109,4 +113,8 @@ img{
 }
 .like1 a:visited{
     color:blue;
+}
+
+.name{
+    color:black;
 }

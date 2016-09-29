@@ -16,11 +16,11 @@ function ssidCheck(){
 //組み分けを一括で行う関数
 function view($result){
     $view100  = "";
-    $view100 .= '<p class="like'.$result["book_like"].'">';
+    $view100 .= '<p id="like" class="like'.$result["book_like"].'".>';
     $view100 .= '<a href ="bm_detail.php?id='.$result["id"].'">';
     $view100 .= $result["book_name"];
     $view100 .= '</a>';
-    $view100 .= '<a href="bm_like.php?id='.$result["id"].'book_like='.$result["book_like"].'">';
+//    $view100 .= '<a href="bm_like.php?id='.$result["id"].'&'.'book_like='.$result["book_like"].'">';
     $view100 .= '<span class="like">［Like］</span>';
     $view100 .= '</a>';
     $view100 .= '<a href="bm_delete.php?id='.$result["id"].'">';

@@ -38,7 +38,7 @@ $val = $stmt->fetch(); //1レコードだけ取得する方法
 //6. 該当レコードがあればSESSIONに値を代入
 if( $val["id"] != "" ){
   $_SESSION["schk"] = session_id();
-  $_SESSION["name"]=$val["name"];
+  $_SESSION["name"]=$val["user_name"];
   $_SESSION["kanri_flg"]=$val["kanri_flg"];
   header("Location: bm_list_view.php");
 }else{

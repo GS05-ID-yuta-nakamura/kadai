@@ -4,13 +4,14 @@ include("functions.php");
 //1.POSTでParamを取得
 $id = $_GET["id"];
 $book_like = $_GET["book_like"];
-
+echo $book_like;
 //book_likeを変更
 if($book_like == 0){
     $book_like = 1;
 }else if($book_like == 1){
     $book_like = 0;
 }
+echo $book_like;
 
 //2.DB接続など
 $pdo = db_con();
